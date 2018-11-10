@@ -18,7 +18,10 @@ typedef struct {
 } point;
 
 typedef struct {
-
+    double cost;
+    int* assignment;
+    int* locationTaken;
+    int* factoryTaken;
 } stack_data;
 
 typedef struct stack_node stack_node;

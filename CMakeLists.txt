@@ -12,7 +12,10 @@ set(SOURCE_FILES
         IO/IO.h
         IO/IO.c
         utils.h
-        utils.c)
+        utils.c
+        Algorithm/heuristics.c
+        Algorithm/algorithms.h
+        Algorithm/simpleBranchAndBound.c)
 
 add_executable(QuadraticAssignment ${SOURCE_FILES})
 
