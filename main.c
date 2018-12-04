@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <omp.h>
 #include "DataStructure/DataStructure.h"
 #include "IO/IO.h"
 #include "Algorithm/algorithms.h"
@@ -16,22 +17,13 @@ int main(int argc, char *argv[]) {
 
     stack_data bestHeuristics = randomWithCorrectingIterations(params);
 
-    printf("Solution cost: %f\n", bestHeuristics.cost);
-    printf("Assignment: ");
-    for (int i = 0; i < params.locations; ++i) {
-        printf("%d:%d ", i, bestHeuristics.assignment[i]);
-    }
-    printf("\n");
+    double start = omp_get_wtime();
+    stack_data solution = parallelBranchAndBound(params, bestHeuristics);
+    double duration = omp_get_wtime() - start;
 
-    stack_data solution = simpleBranchAndBound(params, bestHeuristics);
+    printf("It took %f seconds for algorithm.\n", duration);
 
-    //PrintResult(params, solution);
-
-    printf("Solution cost: %f\n", solution.cost);
-    printf("Assignment: ");
-    for (int i = 0; i < params.locations; ++i) {
-        printf("%d:%d ", i, solution.assignment[i]);
-    }
+    PrintResult(params, solution);
 
     return 0;
 }

@@ -13,11 +13,16 @@ args = parser.parse_args()
 points = np.random.randint(0, 1000, size=(2, args.N))
 indexes = np.arange(0, args.N)
 
-locations = np.column_stack((indexes, points[0, :], points[1, :]))
-
+locations = np.random.randint(0, 1000, size=(args.N, args.N))
+locations = (locations + locations.T) / 2 - np.diag(locations.diagonal())
 
 flow = np.random.randint(0, 1000, size=(args.N, args.N))
 flow = (flow + flow.T) / 2 - np.diag(flow.diagonal())
+
+zeroFlow = np.random.randint(0, args.N, size=(args.N, 2))
+for i, j in zeroFlow:
+    flow[i][j] = 0
+    flow[j][i] = 0
 
 out = f'qa_{args.N}.out'
 if args.o:

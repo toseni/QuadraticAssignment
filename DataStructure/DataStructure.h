@@ -8,7 +8,7 @@
 
 typedef struct {
     int locations;
-    double **distanceMatrix;
+    int **distanceMatrix;
     int **flowMatrix;
 } qa_global;
 
@@ -18,9 +18,9 @@ typedef struct {
 } point;
 
 typedef struct {
-    double cost;
+    int cost;
+    int location;
     int* assignment;
-    int* locationTaken;
     int* factoryTaken;
 } stack_data;
 
@@ -30,10 +30,5 @@ struct stack_node
     stack_data data;
     stack_node* next;
 };
-
-int isEmpty(stack_node *s);
-stack_node* push(stack_node *s, stack_data data);
-stack_node* pop(stack_node *s, stack_data *data);
-void init(stack_node* s);
 
 #endif //QUADRATICASSIGMENT_DATASTRUCTURE_H

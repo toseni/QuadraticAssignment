@@ -15,7 +15,7 @@ set(SOURCE_FILES
         utils.c
         Algorithm/heuristics.c
         Algorithm/algorithms.h
-        Algorithm/simpleBranchAndBound.c)
+        Algorithm/simpleBranchAndBound.c Algorithm/parallelBranchAndBound.c DataStructure/LinkedStack.h DataStructure/ParallelStack.h DataStructure/ParallelStack.c)
 
 add_executable(QuadraticAssignment ${SOURCE_FILES})
 
