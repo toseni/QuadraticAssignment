@@ -1,9 +1,16 @@
 cmake_minimum_required(VERSION 3.7.2)
 project(QuadraticAssignment C)
 
+find_package(MPI REQUIRED)
+
 set(CMAKE_C_STANDARD 99)
 
 set(CMAKE_C_FLAGS "-fopenmp")
+
+include_directories(${MPI_INCLUDE_PATH})
+
+SET(CMAKE_C_COMPILER mpicc)
+SET(CMAKE_CXX_COMPILER mpicxx)
 
 set(SOURCE_FILES
         main.c
@@ -15,7 +22,7 @@ set(SOURCE_FILES
         utils.c
         Algorithm/heuristics.c
         Algorithm/algorithms.h
-        Algorithm/simpleBranchAndBound.c Algorithm/parallelBranchAndBound.c DataStructure/LinkedStack.h DataStructure/ParallelStack.h DataStructure/ParallelStack.c)
+        Algorithm/simpleBranchAndBound.c Algorithm/parallelBranchAndBound.c DataStructure/LinkedStack.h DataStructure/ParallelStack.h DataStructure/ParallelStack.c DataStructure/LinkedQueue.c DataStructure/LinkedQueue.h MPI/mpiWrapper.c MPI/mpiWrapper.h Algorithm/hybridBranchAndBound.c)
 
 add_executable(QuadraticAssignment ${SOURCE_FILES})
 

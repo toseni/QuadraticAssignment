@@ -1,7 +1,3 @@
-//
-// Created by tomas on 18.12.4.
-//
-
 #ifndef QUADRATICASSIGNMENT_LINKEDSTACK_H
 #define QUADRATICASSIGNMENT_LINKEDSTACK_H
 

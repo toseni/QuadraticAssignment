@@ -1,7 +1,3 @@
-//
-// Created by tomas on 18.10.17.
-//
-
 #include <stddef.h>
 #include <malloc.h>
 #include "../DataStructure/DataStructure.h"
@@ -47,16 +43,21 @@ stack_data simpleBranchAndBound(qa_global params, stack_data bestKnown) {
 
             if (AllLocationsAssigned(params.locations, current)) {
                 if (bestKnown.cost >= subProblem.cost) {
-                    printf("Better solution found: %d\n", subProblem.cost);
+                    printf("Better solution found: %ld\n", subProblem.cost);
                     bestKnown.cost = subProblem.cost;
                     CopyArray(params.locations, subProblem.assignment, bestKnown.assignment);
                 }
 
+                free(subProblem.assignment);
+                free(subProblem.factoryTaken);
                 continue;
             }
 
             double costEstimate = subProblem.cost + GetLowerBound(params, subProblem);
             if (bestKnown.cost < costEstimate) {
+
+                free(subProblem.assignment);
+                free(subProblem.factoryTaken);
                 continue;
             }
 

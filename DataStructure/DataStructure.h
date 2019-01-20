@@ -1,7 +1,3 @@
-//
-// Created by tomas on 18.10.7.
-//
-
 #ifndef QUADRATICASSIGMENT_DATASTRUCTURE_H
 #define QUADRATICASSIGMENT_DATASTRUCTURE_H
 
@@ -18,7 +14,7 @@ typedef struct {
 } point;
 
 typedef struct {
-    int cost;
+    long cost;
     int location;
     int* assignment;
     int* factoryTaken;

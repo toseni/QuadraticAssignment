@@ -1,11 +1,7 @@
-//
-// Created by tomas on 18.12.4.
-//
-
 #include <stdlib.h>
 #include <omp.h>
 #include <stdio.h>
-#include "DataStructure.h"
+#include "LinkedStack.h"
 
 static stack_node *_head;
 
@@ -17,7 +13,7 @@ static volatile int *_workFlags;
 void initStackParallel() {
     _head = NULL;
 
-    _numberOfThreads = omp_get_num_threads();
+    _numberOfThreads = omp_get_max_threads();
 
     _workFlags = (int *) malloc(sizeof(int) * _numberOfThreads);
     for (int i = 0; i < _numberOfThreads; ++i) {

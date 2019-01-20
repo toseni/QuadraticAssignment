@@ -1,10 +1,6 @@
-//
-// Created by tomas on 18.10.7.
-//
-
 #include <stddef.h>
 #include <stdlib.h>
-#include "DataStructure.h"
+#include "LinkedStack.h"
 
 void init(stack_node* head)
 {

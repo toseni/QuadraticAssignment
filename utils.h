@@ -1,7 +1,3 @@
-//
-// Created by tomas on 18.10.10.
-//
-
 #ifndef QUADRATICASSIGMENT_UTILS_H
 #define QUADRATICASSIGMENT_UTILS_H
 
